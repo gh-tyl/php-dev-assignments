@@ -1,10 +1,12 @@
 <?php
 $filePath = "./myfiles/mygoals.json";
 if (file_exists($filePath)) {
+	// load json
 	$json = fopen($filePath, "r");
 	$goals = fread($json, filesize($filePath));
 	$goals = json_decode($goals, true);
 	fclose($json);
+	// display goals in table
 	echo "
 	<table>
 	<thead>
