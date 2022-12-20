@@ -7,7 +7,7 @@ function decrypt($str, $key)
 	$result = "";
 	for ($i = 0; $i < $strLen; $i++) {
 		$result .= chr((ord($str[$i]) - ord($key[$i % $keyLen]) + 256) % 256 + ord(''));
-		echo ("str: " . $str[$i] . " key: " . $key[$i % $keyLen] . " result: " . $result[$i] . "<br>");
+		// echo ("str: " . $str[$i] . " key: " . $key[$i % $keyLen] . " result: " . $result[$i] . "<br>");
 	}
 	return $result;
 }
@@ -20,7 +20,7 @@ echo "<form action='VegDec.php' method='post' enctype='multipart/form-data'>";
 echo "<input type='file' name='file' placeholder='Upload a file'>";
 echo "<input type='text' name='key' placeholder='Enter a key'>";
 echo "<input type='submit' name='submit' value='Decrypt'>";
-echo "</form>";
+echo "</form><br>";
 
 if (isset($_POST['submit'])) {
 	$key = $_POST['key'];
@@ -49,9 +49,10 @@ if (isset($_POST['submit'])) {
 	} else {
 		echo "You cannot upload files of this type!";
 	}
+	echo "<br>";
 }
 ?>
 <?php
 // path to VegEnc.php
-echo "<a href='VegEnc.php'>Encrypt</a>";
+echo "<br><a href='VegEnc.php'>Encrypt</a>";
 ?>

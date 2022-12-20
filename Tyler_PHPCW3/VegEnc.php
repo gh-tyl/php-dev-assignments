@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) {
 	$key = $_POST['key'];
 	$result = encrypt($str, $key);
 	saveEncryptText($result);
-	header("Location: VegDec.php");
 }
 ?>
 <!-- form -->
@@ -35,5 +34,12 @@ echo "<form action='VegEnc.php' method='post'>";
 echo "<input type='text' name='str' placeholder='Enter a string'>";
 echo "<input type='text' name='key' placeholder='Enter a key'>";
 echo "<input type='submit' name='submit' value='Encrypt'>";
-echo "</form>";
+echo "</form><br>";
+?>
+<?php
+if (isset($_POST['submit'])) {
+	echo "<a href='./data/keyword.txt' download>Download</a><br>";
+}
+// path to VegDec.php
+echo "<br><a href='VegDec.php'>Decrypt</a><br>";
 ?>
