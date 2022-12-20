@@ -2,12 +2,12 @@
 // decrypt a string by vigenere rule
 function decrypt($str, $key)
 {
-	$keyLen = strlen($key);
+	// $asciiLen = 256;
 	$strLen = strlen($str);
+	$keyLen = strlen($key);
 	$result = "";
 	for ($i = 0; $i < $strLen; $i++) {
-		$result .= chr((ord($str[$i]) - ord($key[$i % $keyLen]) + 256) % 256 + ord(''));
-		// echo ("str: " . $str[$i] . " key: " . $key[$i % $keyLen] . " result: " . $result[$i] . "<br>");
+		$result .= chr((ord($str[$i]) - ord($key[$i % $keyLen])));
 	}
 	return $result;
 }
